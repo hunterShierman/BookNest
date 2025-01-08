@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orchard Library</title>
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Simple header</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        </ul>
+      </header>
+    </div>
+    
+  </header>
+
+  
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="inputs">
+
+    <input type="text" id="inputTitle" placeholder="Enter Title ">
+    <input type="text" id="inputGenre" placeholder="Enter Genre">
+    <input type="text" id="inputDate" placeholder="Enter Publication Date">
+    <input type="text" id="inputIsbn" placeholder="ISBN">
+
+  </div>
+
+  <div id="replace">
+    <div>use this to replace a specific index/row</div>
+    <input type="text" id="replaceNum" placeholder="Enter ID to Replace">
+  </div>
+
+  <div class="buttons">
+    <button id="getInfo">Search All Books</button>
+    <button id="postInfo">Insert Book</button>
+    <button id="putInfo">Replace Book</button>
+    <button id="deleteInfo">Delete Book</button>
+    <button id="resetInfo">Reset Search</button>
+  </div>
+
+  <div class="buttons">
+    <button id="searchTitle">Search By Title</button>
+    <button id="searchGenre">Search By Genre</button>
+    <button id="searchDate">Search By Date</button>
+    <button id="searchIsbn">Search By ISBN</button>
+  </div>
+
+ 
+  <div id="data-container">
+
+
+  </div>
+
+  <main>
+    <h2>Welcome to Sweet Treats Bakery!</h2>
+    <p>From freshly baked bread to delightful pastries, we craft every treat with love and care. Visit us for a taste of home!</p>
+  </main>
+  <footer>
+    <p>&copy; 2024 Sweet Treats Bakery. All Rights Reserved.</p>
+  </footer>
+</body>
+<script src="./script.js"></script>
+</html>
