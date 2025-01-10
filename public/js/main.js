@@ -86,6 +86,33 @@
     }; // end ssMoveHeader
 
 
+    // dynamic search bar
+
+    const filterSelector = document.getElementById('filter-selector');
+    const searchBar = document.getElementById('search-bar');
+
+    filterSelector.addEventListener('change', function() {
+        const selectedValue = filterSelector.value;
+
+        if (selectedValue === 'title') {
+        searchBar.placeholder = 'Search by title...';
+        } else if (selectedValue === 'author') {
+        searchBar.placeholder = 'Search by author...';
+        } else if (selectedValue === 'genre') {
+        searchBar.placeholder = 'Search by genre...';
+        } else if (selectedValue === 'date') {
+        searchBar.placeholder = 'Search by date... (xx/xx/xx)';
+        }
+        else if (selectedValue === 'ISBN') {
+            searchBar.placeholder = 'Search by ISBN';
+        }
+        else {
+            searchBar.placeholder = 'Search...';
+        }
+    });
+
+
+
    /* mobile menu
     * ---------------------------------------------------- */ 
     const ssMobileMenu = function() {

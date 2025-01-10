@@ -2865,6 +2865,8 @@ img.u-pull-left {
     opacity : .75;
 }
 
+
+
 /* ------------------------------------------------------------------- 
  * ## list block
  * ------------------------------------------------------------------- */
@@ -3141,7 +3143,7 @@ img.u-pull-left {
 }
 
 /* --------------------------------------------------------------------
- * ## header social
+ * ## header search bar
  * -------------------------------------------------------------------- */
 .s-header__social {
     list-style  : none;
@@ -3167,6 +3169,52 @@ img.u-pull-left {
 .s-header__social svg path {
     fill : white;
 }
+
+.search-flex {
+    display: flex;
+    height: 40px;
+    gap: 1%;
+    align-items: center;
+}
+
+
+.search-flex .s-search-item {
+    height: 40px !important; 
+    background-color: rgba(255, 255, 255) !important; /* Optional: Background color */
+    border-radius: 0.375rem !important;
+    margin-bottom: 0%;
+}
+
+.s-button-trigger {
+    display: flex;
+    align-items: center;
+}
+
+.s-button-trigger .smoothscroll {
+    color: black !important;
+}
+
+
+
+/* Styling for the dropdown */
+.s-header__dropdown {
+    margin: 0; /* Remove default margins */
+    padding: 0.8rem 1rem; /* Consistent padding */
+    font-size: 1.4rem; /* Match font size */
+    font-family: var(--font-2); /* Match font family */
+    border: 1px solid rgba(255, 255, 255); /* Consistent border */
+    border-radius: 4px; /* Add rounded corners */
+    box-sizing: border-box; /* Ensure padding doesn’t affect size */
+  }
+  
+  /* Ensure the selected text is visible */
+  .s-header__dropdown option {
+    color: black; /* Ensure the text inside options is visible */
+    background-color: white; /* Set background for dropdown options */
+  }
+  
+
+
 
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
@@ -3387,7 +3435,7 @@ img.u-pull-left {
  * -------------------------------------------------------------------- */
 .s-intro__bg {
     display             : block;
-    background-image    : url(../photos/library.jpg);
+    /* background-image    : url(../photos/library.jpg); */
     background-repeat   : no-repeat;
     background-position : center;
     background-size     : cover;
@@ -3445,7 +3493,7 @@ img.u-pull-left {
 
 .s-intro__content-bg {
     display             : block;
-    /* background-image    : url(../photos/library.jpg); */
+    background-image    : url(../photos/library.jpg);
     background-repeat   : no-repeat;
     background-position : center;
     background-size     : cover;
@@ -4337,8 +4385,6 @@ img.u-pull-left {
     background-color: #fff;
 }
 
-
-
 .s-testimonials__author {
     display       : inline-block;
     min-height    : var(--vspace-2);
@@ -4381,6 +4427,21 @@ img.u-pull-left {
     line-height : var(--vspace-0_5);
     color       : var(--color-text-light);
 }
+/* -------------------------------------------------------------------
+ # Search Filter Section
+  ------------------------------------------------------------------- */
+#search {
+    background-color: white;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
@@ -4413,7 +4474,7 @@ img.u-pull-left {
  *
  * ------------------------------------------------------------------- */
 .s-footer {
-    background-color : var(--color-gray-2);
+    background-color : var(--color-gray-19);
     padding-top      : calc(5.5 * var(--space));
     padding-bottom   : var(--vspace-3);
     margin-top       : auto;
