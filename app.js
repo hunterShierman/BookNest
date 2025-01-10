@@ -1,5 +1,7 @@
 // Requiring module
 const express = require('express');
+require('dotenv').config();
+
 const path = require('path');
 const fs = require("fs");
 var mysql = require('mysql2');
@@ -9,7 +11,7 @@ var con = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_USER
+    database: process.env.DB_NAME
     });
 
 

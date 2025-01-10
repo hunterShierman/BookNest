@@ -1,14 +1,52 @@
-document.getElementById("getInfo").addEventListener("click", sendGet);
-document.getElementById("postInfo").addEventListener("click", sendPost);
-document.getElementById("putInfo").addEventListener("click", sendPut);
-document.getElementById("deleteInfo").addEventListener("click", sendDelete);
-document.getElementById("resetInfo").addEventListener("click", resetInfo);
 
-// more specific searches
-document.getElementById("searchTitle").addEventListener("click", searchTitle);
-document.getElementById("searchGenre").addEventListener("click", searchGenre);
-document.getElementById("searchDate").addEventListener("click", searchDate);
-document.getElementById("searchIsbn").addEventListener("click", searchIsbn);
+// load up all books on load
+// window.onload = function loadBooks() {
+//     sendGet();
+// }
+
+// main loader
+document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP);
+
+
+// document.getElementById("getInfo").addEventListener("click", sendGet);
+// document.getElementById("postInfo").addEventListener("click", sendPost);
+// document.getElementById("putInfo").addEventListener("click", sendPut);
+// document.getElementById("deleteInfo").addEventListener("click", sendDelete);
+// document.getElementById("resetInfo").addEventListener("click", resetInfo);
+
+// // more specific searches
+// document.getElementById("searchTitle").addEventListener("click", searchTitle);
+// document.getElementById("searchGenre").addEventListener("click", searchGenre);
+// document.getElementById("searchDate").addEventListener("click", searchDate);
+// document.getElementById("searchIsbn").addEventListener("click", searchIsbn);
+
+
+
+// handle all HTTP REQUESTS
+function handleHTTP() {
+
+    if (document.getElementById("filter-selector").value != null) {
+        filter = document.getElementById("filter-selector").value;
+        console.log(filter);
+
+        if (filter == "Title") {
+            searchTitle();
+        }
+        else if (filter == "Genre") {
+            searchGenre();
+        }
+        else if (filter == "Date") {
+            searchDate();
+        }
+        else if (filter == "ISBN") {
+            searchIsbn();
+        }
+        // else if (filter == "Author") {
+        //     searchAuthor();
+        // }
+    }
+
+}
 
 
 // sends get request
@@ -41,10 +79,9 @@ function sendGet() {
 function searchTitle() {
 
     console.log("clicked specific search");
-    let title = document.getElementById("inputTitle").value;
-    console.log(title);
+    let title = document.getElementById("search-bar").value;
+    console.log(title, "here idiot");
     let url = `http://localhost:5001/buttons/search/title?name=${title}`
-    console.log(url);
 
     fetch(url)
         .then(response => {
@@ -71,7 +108,7 @@ function searchTitle() {
     function searchGenre() {
 
         console.log("clicked search genre");
-        let genre = document.getElementById("inputGenre").value;
+        let genre = document.getElementById("search-bar").value;
         console.log(genre);
         let url = `http://localhost:5001/buttons/search/genre?name=${genre}`;
         console.log(url);
@@ -101,7 +138,7 @@ function searchTitle() {
     function searchDate() {
 
         console.log("clicked search date");
-        date = document.getElementById("inputDate").value;
+        date = document.getElementById("search-bar").value;
         console.log(date);
         url = `http://localhost:5001/buttons/search/date?name=${date}`;
 
@@ -129,7 +166,7 @@ function searchTitle() {
     // search by isbn number
     function searchIsbn() {
 
-        let isbn = document.getElementById("inputIsbn").value;
+        let isbn = document.getElementById("search-bar").value;
         url = `http://localhost:5001/buttons/search/isbn?name=${isbn}`;
 
         fetch(url)
