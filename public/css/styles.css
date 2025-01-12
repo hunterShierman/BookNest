@@ -3194,6 +3194,11 @@ img.u-pull-left {
     color: black !important;
 }
 
+#book-logo {
+    height: 60px;
+    width: 60px;
+}
+
 
 
 /* Styling for the dropdown */

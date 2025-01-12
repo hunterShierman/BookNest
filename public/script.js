@@ -29,13 +29,13 @@ function handleHTTP() {
         filter = document.getElementById("filter-selector").value;
         console.log(filter);
 
-        if (filter == "Title") {
+        if (filter == "title") {
             searchTitle();
         }
-        else if (filter == "Genre") {
+        else if (filter == "genre") {
             searchGenre();
         }
-        else if (filter == "Date") {
+        else if (filter == "date") {
             searchDate();
         }
         else if (filter == "ISBN") {
