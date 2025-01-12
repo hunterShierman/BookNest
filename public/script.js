@@ -32,6 +32,9 @@ function handleHTTP() {
         if (filter == "title") {
             searchTitle();
         }
+        else if (filter == "all") {
+            sendGet();
+        }
         else if (filter == "genre") {
             searchGenre();
         }
@@ -41,9 +44,9 @@ function handleHTTP() {
         else if (filter == "ISBN") {
             searchIsbn();
         }
-        // else if (filter == "Author") {
-        //     searchAuthor();
-        // }
+        else if (filter == "Author") {
+            searchAuthor();
+        }
     }
 
 }
@@ -65,7 +68,7 @@ function sendGet() {
             // Display data dynamically
             data.forEach(book => {
               const bookDiv = document.createElement("div");
-              bookDiv.textContent = `${book.EntryId}: ${book.Title} - ${book.Genre} - ${book.Date} - ${book.ISBN}`;
+              bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
               container.appendChild(bookDiv);
             });
             
@@ -94,7 +97,7 @@ function searchTitle() {
             data.forEach(book => {
 
                 const bookDiv = document.createElement("div");
-                bookDiv.textContent = `${book.EntryId}: ${book.Title} - ${book.Genre} - ${book.Date} - ${book.ISBN}`;
+                bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
                 container.appendChild(bookDiv);
 
             });
@@ -104,91 +107,118 @@ function searchTitle() {
         })
     }
 
-    // search genre
-    function searchGenre() {
+// search author
+function searchAuthor() {
+    let author = document.getElementById("search-bar").value;
+    console.log(author);
+    let url = `http://localhost:5001/buttons/search/author?name=${author}`;
 
-        console.log("clicked search genre");
-        let genre = document.getElementById("search-bar").value;
-        console.log(genre);
-        let url = `http://localhost:5001/buttons/search/genre?name=${genre}`;
-        console.log(url);
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
 
-        fetch(url)
-            .then(response => {
-                return response.json()
+            const container = document.getElementById("content-container");
+            data.forEach(book => {
+
+                newDiv = document.createElement("div");
+                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                container.appendChild(newDiv);
+
             })
-            .then(data => {
-                console.log(data)
-                const container = document.getElementById("data-container");
 
-                data.forEach(book => {
+        })
+        .catch(error => {
+            console.log(error);
+        })
 
-                     newDiv = document.createElement("div");
-                     newDiv.textContent = `${book.EntryId}: ${book.Title} - ${book.Genre} - ${book.Date} - ${book.ISBN}`;
-                     container.appendChild(newDiv);
+}
 
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+// search genre
+function searchGenre() {
 
-    // search by date
-    function searchDate() {
+    console.log("clicked search genre");
+    let genre = document.getElementById("search-bar").value;
+    console.log(genre);
+    let url = `http://localhost:5001/buttons/search/genre?name=${genre}`;
 
-        console.log("clicked search date");
-        date = document.getElementById("search-bar").value;
-        console.log(date);
-        url = `http://localhost:5001/buttons/search/date?name=${date}`;
+    fetch(url)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            const container = document.getElementById("data-container");
 
-        fetch(url)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
+            data.forEach(book => {
 
-                const container = document.getElementById("data-container");
-                
-                data.forEach(book => {
                     newDiv = document.createElement("div");
-                    newDiv.textContent = `${book.EntryId}: ${book.Title} - ${book.Genre} - ${book.Date} - ${book.ISBN}`;
+                    newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
                     container.appendChild(newDiv);
-                })
-
-            .catch(error => {
-                console.log(error);
-            })
-            })
-
-    }
-
-    // search by isbn number
-    function searchIsbn() {
-
-        let isbn = document.getElementById("search-bar").value;
-        url = `http://localhost:5001/buttons/search/isbn?name=${isbn}`;
-
-        fetch(url)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-
-                const container = document.getElementById("data-container");
-
-                data.forEach(book => {
-                    newDiv = document.createElement("div");
-                    newDiv.textContent = `${book.EntryId}: ${book.Title} - ${book.Genre} - ${book.Date} - ${book.ISBN}`;
-                    container.appendChild(newDiv);
-                })
 
             })
-            .catch(error => {
-                console.log(error);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+
+// search by date
+function searchDate() {
+
+    console.log("clicked search date");
+    date = document.getElementById("search-bar").value;
+    console.log(date);
+    url = `http://localhost:5001/buttons/search/date?name=${date}`;
+
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+
+            const container = document.getElementById("data-container");
+            
+            data.forEach(book => {
+                newDiv = document.createElement("div");
+                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                container.appendChild(newDiv);
             })
 
-    }
+        .catch(error => {
+            console.log(error);
+        })
+        })
+
+}
+
+// search by isbn number
+function searchIsbn() {
+
+    let isbn = document.getElementById("search-bar").value;
+    url = `http://localhost:5001/buttons/search/isbn?name=${isbn}`;
+
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+
+            const container = document.getElementById("data-container");
+
+            data.forEach(book => {
+                newDiv = document.createElement("div");
+                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                container.appendChild(newDiv);
+            })
+
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+}
 
 
 // sends post request

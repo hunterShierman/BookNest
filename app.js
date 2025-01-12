@@ -102,6 +102,21 @@ app.get("/buttons/search/date", (req, res) => {
 
 })
 
+// search by author
+app.get("/buttons/search/author", (req, res) => {
+
+    let author = req.query.name;
+    let sql = `SELECT * FROM INVENTORY WHERE author =?`;
+
+    con.query(sql, [isbn], function(err, result, fields) {
+        if (err) throw err;
+        console.log("searching for all matching authors");
+        res.json(result);
+
+    })
+
+})
+
 // search by isbn
 app.get("/buttons/search/isbn", (req, res) => {
 
