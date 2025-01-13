@@ -64,6 +64,7 @@ function sendGet() {
             console.log("here shitter");
             
             const container = document.getElementById("data-container");
+            resetInfo();
 
             // Display data dynamically
             data.forEach(book => {
@@ -94,6 +95,8 @@ function searchTitle() {
             console.log(data);
             const container = document.getElementById("data-container");
 
+            resetInfo();
+
             data.forEach(book => {
 
                 const bookDiv = document.createElement("div");
@@ -120,6 +123,8 @@ function searchAuthor() {
         .then(data => {
 
             const container = document.getElementById("content-container");
+            resetInfo();
+
             data.forEach(book => {
 
                 newDiv = document.createElement("div");
@@ -150,6 +155,7 @@ function searchGenre() {
         .then(data => {
             console.log(data)
             const container = document.getElementById("data-container");
+            resetInfo();
 
             data.forEach(book => {
 
@@ -179,6 +185,7 @@ function searchDate() {
         .then(data => {
 
             const container = document.getElementById("data-container");
+            resetInfo();
             
             data.forEach(book => {
                 newDiv = document.createElement("div");
@@ -206,6 +213,7 @@ function searchIsbn() {
         .then(data => {
 
             const container = document.getElementById("data-container");
+            resetInfo();
 
             data.forEach(book => {
                 newDiv = document.createElement("div");
