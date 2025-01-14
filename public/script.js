@@ -68,9 +68,14 @@ function sendGet() {
 
             // Display data dynamically
             data.forEach(book => {
-              const bookDiv = document.createElement("div");
-              bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-              container.appendChild(bookDiv);
+            //   const bookDiv = document.createElement("div");
+            //   bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+            //   container.appendChild(bookDiv);
+
+                let bookCover = document.createElement("img");
+                bookCover.src = book.Path;
+                bookCover.className = "book-item";
+                container.appendChild(bookCover);
             });
             
         })
@@ -185,7 +190,12 @@ function searchDate() {
         .then(data => {
 
             const container = document.getElementById("data-container");
-            resetInfo();
+            // bookCover = document.createElement("img");
+            // bookCover.src = "./photos/babel.jpg";
+            // bookCover.className = "book-item";
+            // container.appendChild(bookCover);
+
+            // resetInfo();
             
             data.forEach(book => {
                 newDiv = document.createElement("div");
