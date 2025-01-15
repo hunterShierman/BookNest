@@ -2,4 +2,3 @@
 .env
 # ignore these folders
 node_modules/
-public/photos/

@@ -104,9 +104,13 @@ function searchTitle() {
 
             data.forEach(book => {
 
-                const bookDiv = document.createElement("div");
-                bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                container.appendChild(bookDiv);
+                // const bookDiv = document.createElement("div");
+                // bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                // container.appendChild(bookDiv);
+                const bookCover = document.createElement("img");
+                bookCover.src = book.path;
+                bookCover.className = "book-item";
+                container.appendChild(bookCover);
 
             });
         })
