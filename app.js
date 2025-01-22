@@ -106,7 +106,7 @@ app.get("/buttons/search/date", (req, res) => {
 app.get("/buttons/search/author", (req, res) => {
 
     let author = req.query.name;
-    let sql = `SELECT * FROM INVENTORY WHERE author =?`;
+    let sql = `SELECT * FROM INVENTORY WHERE Author =?`;
 
     con.query(sql, [isbn], function(err, result, fields) {
         if (err) throw err;

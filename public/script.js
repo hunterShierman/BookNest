@@ -72,7 +72,7 @@ function sendGet() {
             //   bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
             //   container.appendChild(bookDiv);
 
-                let bookCover = document.createElement("img");
+                const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
@@ -108,7 +108,7 @@ function searchTitle() {
                 // bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
                 // container.appendChild(bookDiv);
                 const bookCover = document.createElement("img");
-                bookCover.src = book.path;
+                bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
 
@@ -136,9 +136,14 @@ function searchAuthor() {
 
             data.forEach(book => {
 
-                newDiv = document.createElement("div");
-                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                container.appendChild(newDiv);
+                // newDiv = document.createElement("div");
+                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                // container.appendChild(newDiv);
+                console.log(book);
+                const bookCover = document.createElement("img");
+                bookCover.src = book.Path;
+                book.className = "book-item";
+                container.appendChild(bookCover);
 
             })
 
@@ -168,9 +173,14 @@ function searchGenre() {
 
             data.forEach(book => {
 
-                    newDiv = document.createElement("div");
-                    newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                    container.appendChild(newDiv);
+                    // newDiv = document.createElement("div");
+                    // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                    // container.appendChild(newDiv);
+
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
 
             })
         })
@@ -199,12 +209,17 @@ function searchDate() {
             // bookCover.className = "book-item";
             // container.appendChild(bookCover);
 
-            // resetInfo();
+            resetInfo();
             
             data.forEach(book => {
-                newDiv = document.createElement("div");
-                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                container.appendChild(newDiv);
+                // newDiv = document.createElement("div");
+                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                // container.appendChild(newDiv);
+
+                const bookCover = document.createElement("img");
+                bookCover.src = book.Path;
+                bookCover.className = "book-item";
+                container.appendChild(bookCover);
             })
 
         .catch(error => {
@@ -230,9 +245,14 @@ function searchIsbn() {
             resetInfo();
 
             data.forEach(book => {
-                newDiv = document.createElement("div");
-                newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                container.appendChild(newDiv);
+                // newDiv = document.createElement("div");
+                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
+                // container.appendChild(newDiv);
+
+                const bookCover = document.createElement("img");
+                bookCover.src = book.Path;
+                bookCover.className = "book-item";
+                container.appendChild(bookCover);
             })
 
         })
