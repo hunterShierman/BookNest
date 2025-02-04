@@ -8,6 +8,7 @@
 document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP);
 
 
+
 // document.getElementById("getInfo").addEventListener("click", sendGet);
 // document.getElementById("postInfo").addEventListener("click", sendPost);
 // document.getElementById("putInfo").addEventListener("click", sendPut);
@@ -76,7 +77,10 @@ function sendGet() {
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(book.Title, book.Genre, book.Author, book.Date, book.ISBN));
+
             });
+
             
         })
         .catch(error => {
@@ -340,6 +344,19 @@ function sendDelete() {
         console.log("brah error");
         console.log(error);
     })
+
+}
+
+// generate new page for book 
+function generatePage(title, genre, author, date, ISBN) {
+
+    const url = `http://localhost:5001/newPage?title=${title}&genre=${genre}&author=${author}&date=${date}&isbn=${ISBN}`;
+    console.log(url);
+
+
+
+
+
 
 }
 

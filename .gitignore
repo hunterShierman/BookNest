@@ -2,3 +2,6 @@
 .env
 # ignore these folders
 node_modules/
+
+package-lock
+package

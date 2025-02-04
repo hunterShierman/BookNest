@@ -18,6 +18,10 @@ var con = mysql.createConnection({
 // Creating express object
 const app = express();
 
+// set up ejs
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 // middle ware to proccess json
 app.use(express.json());
 app.use(express.urlencoded( { extended: true }));
@@ -37,6 +41,18 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "about.html"));
 })
 
+// get request - dynamically created book page
+app.get("/bookpage", (req, res) => {
+
+    con.query("SELECT * FROM Inventory WHERE ")
+
+    res.render("bookpage", {
+        bookTitle: "Lion King"
+
+
+    })
+
+})
 
 // get info from database
 app.get("/buttons", (req, res) => {
