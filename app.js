@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Handling GET request
 app.get('/', (req, res) => { 
-    res.sendFile(path.join(__dirname, "public", "home.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 }) 
 
 app.get("/contact", (req, res) => {
@@ -44,13 +44,18 @@ app.get("/about", (req, res) => {
 // get request - dynamically created book page
 app.get("/bookpage", (req, res) => {
 
-    con.query("SELECT * FROM Inventory WHERE ")
+    const title = req.query.title;
+    const genre = req.query.genre;
+    const author = req.query.author;
+    const date = req.query.date;
+    const isbn = req.query.isbn;
+    const path = req.query.path;
+    const desc = req.query.desc;
 
-    res.render("bookpage", {
-        bookTitle: "Lion King"
+    console.log(title, genre, author, date, path, desc);
+    
+    res.render("bookpage", { title, genre, author, date, isbn, path, desc});
 
-
-    })
 
 })
 

@@ -1368,7 +1368,7 @@ h6,
 .h6 {
     font-family            : var(--font-2);
     font-weight            : 600;
-    color                  : var(--color-text-dark);
+    color                  : var(--color-text);
     font-variant-ligatures : common-ligatures;
     text-rendering         : optimizeLegibility;
     letter-spacing         : -.010em;

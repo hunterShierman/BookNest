@@ -69,15 +69,12 @@ function sendGet() {
 
             // Display data dynamically
             data.forEach(book => {
-            //   const bookDiv = document.createElement("div");
-            //   bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-            //   container.appendChild(bookDiv);
 
                 const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(book.Title, book.Genre, book.Author, book.Date, book.ISBN));
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
 
             });
 
@@ -115,6 +112,8 @@ function searchTitle() {
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
 
             });
         })
@@ -148,6 +147,8 @@ function searchAuthor() {
                 bookCover.src = book.Path;
                 book.className = "book-item";
                 container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
 
             })
 
@@ -185,6 +186,8 @@ function searchGenre() {
                     bookCover.src = book.Path;
                     bookCover.className = "book-item";
                     container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
 
             })
         })
@@ -224,6 +227,8 @@ function searchDate() {
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
             })
 
         .catch(error => {
@@ -257,6 +262,8 @@ function searchIsbn() {
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
             })
 
         })
@@ -348,17 +355,43 @@ function sendDelete() {
 }
 
 // generate new page for book 
-function generatePage(title, genre, author, date, ISBN) {
+function generatePage(title, genre, author, date, ISBN, path, desc) {
 
-    const url = `http://localhost:5001/newPage?title=${title}&genre=${genre}&author=${author}&date=${date}&isbn=${ISBN}`;
+    const url = `http://localhost:5001/bookPage?title=${title}&genre=${genre}&author=${author}&date=${date}&isbn=${ISBN}&path=${path}&desc=${desc}`;
+    // keep track of prev page visited
+    window.history.pushState({}, '', url);
+
     console.log(url);
 
-
-
-
+    fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text(); // Assuming server returns HTML, not JSON
+    })
+    .then(html => {
+        document.body.innerHTML = html; // Replace body content with the rendered page
+    })
+    .catch(error => {
+        console.log("brah error:", error);
+    });
 
 
 }
+
+// allows the user to click back to get to previous page
+window.addEventListener('popstate', (event) => {
+    console.log('Back button was clicked');
+    const state = event.state;
+    if (state) {
+        generatePage(state.title, state.genre, state.author, state.date, state.isbn, state.path);
+    } else {
+        window.location.href = '/';  
+    }
+});
+
+
 
 // rest your screen
 function resetInfo() {
