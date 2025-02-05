@@ -1,16 +1,19 @@
 # Full-Stack Book Store Project
-This is a full-stack web application for managing a bookstore. It features a front-end interface, a back-end server, and a database to store and manage book data. The goal of this project is to demonstrate my understanding of how the front-end interacts with the back-end server via HTTP requests and how to efficiently manage data within a MySQL database. It showcases the use of the RESTful API to handle CRUD (Create, Read, Update, Delete) operations for managing book entries, which include details such as the book's title, genre, publication date, and ISBN.
+This is a full-stack web application for managing a bookstore. The front-end is built with HTML, CSS, and JavaScript, providing a user-friendly interface for searching, filtering, checking out, and returning books. The back-end server is developed using Node.js with the Express framework, handling server-side routing and business logic. It communicates with a MySQL database to efficiently store, retrieve, and manage book data, such as titles, genres, publication dates, and ISBNs.
+
+The application uses a RESTful API to handle CRUD (Create, Read, Update, Delete) operations. HTTP methods like GET, POST, PUT, and DELETE are used to perform actions on book entries. The server processes incoming requests, interacts with the database using SQL queries, and returns the appropriate responses to the front-end. This project demonstrates my ability to build a full-stack system that integrates front-end interfaces with back-end APIs and a relational database.
 
 Here is a link to the demo video: https://www.youtube.com/watch?v=ZOzlvGD2Fys
 
-
-
 ## Features:
 - View a list of books from the database.
-- Search for books by title, genre, date, or ISBN.
-- Add, edit, and delete books in the inventory.
+- Search and filter for books by title, genre, date, or ISBN.
 
 ## Tech Stack:
 - Frontend: HTML, CSS, JavaScript
 - Backend: Node.js, Express
 - Database: MySQL
+
+## Next Steps 
+- Finish the user account system and checkout feature
+- Currently working on live hosting the website through microsoft Azure
