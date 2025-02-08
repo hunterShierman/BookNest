@@ -144,7 +144,7 @@ app.get("/buttons/search/author", (req, res) => {
     let author = req.query.name;
     let sql = `SELECT * FROM INVENTORY WHERE Author =?`;
 
-    con.query(sql, [isbn], function(err, result, fields) {
+    con.query(sql, [author], function(err, result, fields) {
         if (err) throw err;
         console.log("searching for all matching authors");
         res.json(result);
