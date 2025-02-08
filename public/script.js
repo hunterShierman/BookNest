@@ -1,27 +1,7 @@
 
-// load up all books on load
-// window.onload = function loadBooks() {
-//     sendGet();
-// }
 
 // main loader
 document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP);
-
-
-
-// document.getElementById("getInfo").addEventListener("click", sendGet);
-// document.getElementById("postInfo").addEventListener("click", sendPost);
-// document.getElementById("putInfo").addEventListener("click", sendPut);
-// document.getElementById("deleteInfo").addEventListener("click", sendDelete);
-// document.getElementById("resetInfo").addEventListener("click", resetInfo);
-
-// // more specific searches
-// document.getElementById("searchTitle").addEventListener("click", searchTitle);
-// document.getElementById("searchGenre").addEventListener("click", searchGenre);
-// document.getElementById("searchDate").addEventListener("click", searchDate);
-// document.getElementById("searchIsbn").addEventListener("click", searchIsbn);
-
-
 
 // handle all HTTP REQUESTS
 function handleHTTP() {
@@ -390,6 +370,14 @@ window.addEventListener('popstate', (event) => {
         window.location.href = '/';  
     }
 });
+
+// add links to checkout/information page for the carousel books
+window.addEventListener("load", () => {
+
+    const caroBooks = document.getElementsByClassName("book");
+    console.log(caroBooks);
+
+})
 
 
 

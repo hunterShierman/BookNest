@@ -5,6 +5,8 @@ require('dotenv').config();
 const path = require('path');
 const fs = require("fs");
 var mysql = require('mysql2');
+const helmet = require('helmet');
+
 
 // connect the database server to the backend server
 var con = mysql.createConnection({
@@ -27,9 +29,18 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// middleware for saftey
+app.use(helmet());
+
+
 
 // Handling GET request
 app.get('/', (req, res) => { 
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+}) 
+
+// Handling GET request
+app.get('*', (req, res) => { 
     res.sendFile(path.join(__dirname, "public", "index.html"));
 }) 
 
