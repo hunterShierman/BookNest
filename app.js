@@ -52,6 +52,10 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "about.html"));
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+})
+
 // get request - dynamically created book page
 app.get("/bookpage", (req, res) => {
 
