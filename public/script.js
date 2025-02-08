@@ -37,7 +37,7 @@ function handleHTTP() {
 function sendGet() {
 
     console.log("clicked");
-    fetch("http://localhost:5001/buttons")
+    fetch("booknest.azurewebsites.net/buttons")
         .then(response => {
             return response.json();
         })
@@ -71,7 +71,7 @@ function searchTitle() {
     console.log("clicked specific search");
     let title = document.getElementById("search-bar").value;
     console.log(title, "here idiot");
-    let url = `http://localhost:5001/buttons/search/title?name=${title}`
+    let url = `booknest.azurewebsites.net/buttons/search/title?name=${title}`
 
     fetch(url)
         .then(response => {
@@ -106,7 +106,7 @@ function searchTitle() {
 function searchAuthor() {
     let author = document.getElementById("search-bar").value;
     console.log(author);
-    let url = `http://localhost:5001/buttons/search/author?name=${author}`;
+    let url = `booknest.azurewebsites.net/buttons/search/author?name=${author}`;
 
     fetch(url)
         .then(response => {
@@ -145,7 +145,7 @@ function searchGenre() {
     console.log("clicked search genre");
     let genre = document.getElementById("search-bar").value;
     console.log(genre);
-    let url = `http://localhost:5001/buttons/search/genre?name=${genre}`;
+    let url = `booknest.azurewebsites.net/buttons/search/genre?name=${genre}`;
 
     fetch(url)
         .then(response => {
@@ -182,7 +182,7 @@ function searchDate() {
     console.log("clicked search date");
     date = document.getElementById("search-bar").value;
     console.log(date);
-    url = `http://localhost:5001/buttons/search/date?name=${date}`;
+    url = `booknest.azurewebsites.net/buttons/search/date?name=${date}`;
 
     fetch(url)
         .then(response => {
@@ -222,7 +222,7 @@ function searchDate() {
 function searchIsbn() {
 
     let isbn = document.getElementById("search-bar").value;
-    url = `http://localhost:5001/buttons/search/isbn?name=${isbn}`;
+    url = `booknest.azurewebsites.net/buttons/search/isbn?name=${isbn}`;
 
     fetch(url)
         .then(response => {
@@ -263,7 +263,7 @@ function sendPost() {
     let date = document.getElementById("inputDate").value;
     let ISBN = document.getElementById("inputIsbn").value;
 
-    fetch("http://localhost:5001/buttons", {
+    fetch("booknest.azurewebsites.net/buttons", {
         "method": "POST",
         "headers": {
             'Content-Type': 'application/json'},
@@ -288,7 +288,7 @@ function sendPut() {
     let ISBN = document.getElementById("inputIsbn").value;
     let id = document.getElementById("replaceNum").value;
 
-    fetch("http://localhost:5001/buttons", {
+    fetch("booknest.azurewebsites.net/buttons", {
         "method": "PUT",
         "headers": {
             "Content-Type": "application/json"},
@@ -311,7 +311,7 @@ function sendDelete() {
     let id = document.getElementById("replaceNum").value;
     console.log(id);
 
-    fetch("http://localhost:5001/buttons", {
+    fetch("booknest.azurewebsites.net/buttons", {
         "method": "DELETE",
         "headers": {
             "Content-Type": "application/json"},
@@ -337,7 +337,7 @@ function sendDelete() {
 // generate new page for book 
 function generatePage(title, genre, author, date, ISBN, path, desc) {
 
-    const url = `http://localhost:5001/bookPage?title=${title}&genre=${genre}&author=${author}&date=${date}&isbn=${ISBN}&path=${path}&desc=${desc}`;
+    const url = `booknest.azurewebsites.net/bookPage?title=${title}&genre=${genre}&author=${author}&date=${date}&isbn=${ISBN}&path=${path}&desc=${desc}`;
     // keep track of prev page visited
     window.history.pushState({}, '', url);
 
