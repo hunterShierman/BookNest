@@ -10,7 +10,7 @@ jobs:
   deploy:
     runs-on: windows-latest
     permissions:
-      id-token: write 
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -20,16 +20,17 @@ jobs:
           name: static-files
           path: ./public
 
-      - name: Login to Azure
-        uses: azure/login@v2
+      - name: Login to Azure using Service Principal
+        uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3B35B402515A43E199AB33B739DAF76D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_59D6196F3F4443EC8FAEDA5EB49CE0D9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C87674A8AE1347DFB11B752FBB72CC13 }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'booknest-app'
           package: ./public
+
 
