@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: windows-latest
+    permissions:
+      id-token: write 
     steps:
       - uses: actions/checkout@v4
 
@@ -16,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: static-files
-          path: .
+          path: ./public
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -29,5 +31,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'booknest-app'
-          package: .
+          package: ./public
 
