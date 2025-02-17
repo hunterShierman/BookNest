@@ -20,6 +20,9 @@ var con = mysql.createConnection({
 // Creating express object
 const app = express();
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // set up ejs
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
