@@ -56,6 +56,15 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 })
 
+// end point to handle azure health check requests - idk why they send these so often lol
+app.get('/admin/host/ping', (req, res) => {
+    // Logic to check the health status
+    const healthStatus = {
+        status: 'healthy',
+        timestamp: new Date().toISOString()
+    };
+    res.json(healthStatus);
+
 // get request - dynamically created book page
 app.get("/bookpage", (req, res) => {
 
