@@ -64,6 +64,16 @@ app.get('/admin/host/ping', (req, res) => {
         timestamp: new Date().toISOString()
     };
     res.json(healthStatus);
+});
+
+// end point to check status 
+app.get('/admin/host/status', (req, res) => {
+    const healthStatus = {
+        status: 'healthy',
+        timestamp: new Date().toISOString()
+    };
+    res.json(healthStatus);
+});
 
 // get request - dynamically created book page
 app.get("/bookpage", (req, res) => {
