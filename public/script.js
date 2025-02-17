@@ -1,7 +1,7 @@
 
 
 // main loader
-document.querySelector(".s-button-trigger").addEventListener("click", handlehttps);
+document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP);
 
 // handle all HTTP REQUESTS
 function handleHTTP() {
