@@ -1,0 +1,16 @@
+<configuration>
+  <system.webServer>
+    <defaultDocument>
+      <files>
+        <add value="index.html" />
+      </files>
+    </defaultDocument>
+    <directoryBrowse enabled="true" />
+    <staticContent>
+      <mimeMap fileExtension=".css" mimeType="text/css" />
+      <mimeMap fileExtension=".js" mimeType="application/javascript" />
+      <mimeMap fileExtension=".png" mimeType="image/png" />
+      <mimeMap fileExtension=".jpg" mimeType="image/jpeg" />
+    </staticContent>
+  </system.webServer>
+</configuration>
