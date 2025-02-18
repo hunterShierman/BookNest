@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require("fs");
 var mysql = require('mysql2');
 const helmet = require('helmet');
+const cors = require('cors');
 
 
 // connect the database server to the backend server
@@ -36,8 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// enable CORS configuration
-const cors = require('cors');
+// allow cors
 app.use(cors());
 
 // middleware for saftey
