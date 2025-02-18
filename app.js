@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 }) 
 
 app.get("/contact", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "contact.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 })
 
 app.get("/about", (req, res) => {
