@@ -62,6 +62,7 @@ function sendGet() {
         })
         .catch(error => {
             console.log("brah error", TypeError);
+            console.log(error);
         })
 }
 
