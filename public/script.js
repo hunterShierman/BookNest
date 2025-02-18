@@ -37,7 +37,7 @@ function handleHTTP() {
 function sendGet() {
 
     console.log("clicked");
-    fetch("https://booknest.azurewebsites.net/buttons")
+    fetch("http://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons")
         .then(response => {
             return response.json();
         })
