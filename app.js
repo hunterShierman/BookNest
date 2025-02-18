@@ -50,11 +50,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 }) 
 
-// Handling GET request
-app.get('*', (req, res) => { 
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-}) 
-
 app.get("/contact", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "contact.html"));
 })
@@ -63,9 +58,6 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "about.html"));
 })
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-})
 
 // end point to handle azure health check requests - idk why they send these so often lol
 app.get('/admin/host/ping', (req, res) => {
@@ -268,6 +260,11 @@ app.delete("/buttons", (req, res) => {
     })
 
 })
+
+// Handles leftover non caught requests
+app.get('*', (req, res) => { 
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+}) 
 
 
 // Port Number
