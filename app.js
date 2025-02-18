@@ -32,6 +32,10 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// enable CORS configuration
+const cors = require('cors');
+app.use(cors());
+
 // middleware for saftey
 app.use(helmet());
 
