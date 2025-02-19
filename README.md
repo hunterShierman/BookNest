@@ -7,7 +7,7 @@ For the book information pages, I implemented server-side rendering using Node.j
 
 Here is a link to the demo video: https://www.youtube.com/watch?v=ZOzlvGD2Fys
 
-Here is a link to the website: booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net
+Here is a link to the website: https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/
 
 ## Features:
 - View a list of books from the database.
