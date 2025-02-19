@@ -56,7 +56,7 @@ function handleHTTP() {
         }
 
         else if (filter == "author") {
-            if (document.getElementById("search-bar").value = null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
