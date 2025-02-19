@@ -180,14 +180,3 @@ body {
     gap: 50px;
     margin-bottom: 100px;
   }
-
-/* class for search bar error */
-.error-message {
-  color: red !important;
-  font-weight: bold !important;
-  margin-top: 10px !important;
-  padding: 8px !important;
-  border: 1px solid red !important;
-  border-radius: 5px !important;
-  background-color: #ffe6e6 !important; /* Light red background */
-}

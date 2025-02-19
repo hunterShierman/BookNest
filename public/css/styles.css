@@ -4833,3 +4833,15 @@ img.u-pull-left {
         width  : var(--vspace-1_5);
     }
 }
+
+/* class for search bar error */
+.error-message {
+    color: red !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+    padding: 8px !important;
+    border: 1px solid red !important;
+    border-radius: 5px !important;
+    background-color: #ffe6e6 !important;
+  }
+  
