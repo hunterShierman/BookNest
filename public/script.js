@@ -25,7 +25,7 @@ function handleHTTP() {
         else if (filter == "ISBN") {
             searchIsbn();
         }
-        else if (filter == "Author") {
+        else if (filter == "author") {
             searchAuthor();
         }
     }
@@ -97,9 +97,6 @@ function searchTitle() {
 
             data.forEach(book => {
 
-                // const bookDiv = document.createElement("div");
-                // bookDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                // container.appendChild(bookDiv);
                 const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
                 bookCover.className = "book-item";
@@ -126,18 +123,15 @@ function searchAuthor() {
         })
         .then(data => {
 
-            const container = document.getElementById("content-container");
+            const container = document.getElementById("data-container");
             resetInfo();
 
             data.forEach(book => {
 
-                // newDiv = document.createElement("div");
-                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                // container.appendChild(newDiv);
                 console.log(book);
                 const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
-                book.className = "book-item";
+                bookCover.className = "book-item";
                 container.appendChild(bookCover);
                 bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
 
@@ -170,16 +164,11 @@ function searchGenre() {
 
             data.forEach(book => {
 
-                    // newDiv = document.createElement("div");
-                    // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                    // container.appendChild(newDiv);
-
                     const bookCover = document.createElement("img");
                     bookCover.src = book.Path;
                     bookCover.className = "book-item";
                     container.appendChild(bookCover);
                     bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
-
 
             })
         })
@@ -203,17 +192,10 @@ function searchDate() {
         .then(data => {
 
             const container = document.getElementById("data-container");
-            // bookCover = document.createElement("img");
-            // bookCover.src = "./photos/babel.jpg";
-            // bookCover.className = "book-item";
-            // container.appendChild(bookCover);
 
             resetInfo();
             
             data.forEach(book => {
-                // newDiv = document.createElement("div");
-                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                // container.appendChild(newDiv);
 
                 const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
@@ -246,9 +228,6 @@ function searchIsbn() {
             resetInfo();
 
             data.forEach(book => {
-                // newDiv = document.createElement("div");
-                // newDiv.textContent = `${book.Title}: ${book.Genre} - ${book.Author} - ${book.Date} - ${book.ISBN}`;
-                // container.appendChild(newDiv);
 
                 const bookCover = document.createElement("img");
                 bookCover.src = book.Path;
