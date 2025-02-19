@@ -102,6 +102,7 @@ app.get("/buttons", (req, res) => {
     con.query("SELECT * FROM Inventory", function (err, result, fields) {
         if (err) {
             console.error("Database query error:", err);
+            res.send(result);
             res.status(500).send("Internal Server Error");
             return;
         }
