@@ -39,7 +39,6 @@ function sendGet() {
     console.log("clicked");
     fetch("https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons")
         .then(response => {
-            console.log(response.text());
             return response.json();
         })
         .then(data => {
@@ -62,7 +61,6 @@ function sendGet() {
             
         })
         .catch(error => {
-            console.log("brah error", TypeError);
             console.log(error);
         })
 }
