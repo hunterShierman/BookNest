@@ -7,26 +7,63 @@ document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP
 function handleHTTP() {
 
     if (document.getElementById("filter-selector").value != null) {
+        
         filter = document.getElementById("filter-selector").value;
         console.log(filter);
 
         if (filter == "title") {
-            searchTitle();
+            //display error message if empty
+            if (document.getElementById("search-bar").value == null) {
+                searchError();
+            }
+            else {
+                searchTitle()
+            }
         }
+
         else if (filter == "all") {
-            sendGet();
+            if (document.getElementById("search-bar").value == null) {
+                searchError();
+            }
+            else {
+                sendGet();
+            }
         }
+
         else if (filter == "genre") {
-            searchGenre();
+            if (document.getElementById("search-bar").value == null) {
+                searchError();
+            }
+            else {
+                searchGenre();
+            }
         }
+
         else if (filter == "date") {
-            searchDate();
+            if (document.getElementById("search-bar").value == null) {
+                searchError();
+            }
+            else {
+                searchDate();
+            }
         }
+
         else if (filter == "ISBN") {
-            searchIsbn();
+            if (document.getElementById("search-bar").value == null) {
+                searchError();
+            }
+            else {
+                searchIsbn();
+            }
         }
+
         else if (filter == "author") {
-            searchAuthor();
+            if (document.getElementById("search-bar").value = null) {
+                searchError();
+            }
+            else {
+                searchAuthor();
+            }
         }
     }
 
@@ -382,6 +419,17 @@ function resetInfo() {
       container.removeChild(container.lastChild);
     }
 
+
+}
+
+function searchError() {
+
+    const container = document.getElementById("data-container");
+    const errorMessage = document.createElement("div");
+
+    errorMessage.textContent = "Search field cannot be empty.";
+    errorMessage.className = "error-message";
+    container.appendChild(errorMessage);
 
 }
 
