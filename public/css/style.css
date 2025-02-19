@@ -183,11 +183,11 @@ body {
 
 /* class for search bar error */
 .error-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 8px;
-  border: 1px solid red;
-  border-radius: 5px;
-  background-color: #ffe6e6; /* Light red background */
+  color: red !important;
+  font-weight: bold !important;
+  margin-top: 10px !important;
+  padding: 8px !important;
+  border: 1px solid red !important;
+  border-radius: 5px !important;
+  background-color: #ffe6e6 !important; /* Light red background */
 }

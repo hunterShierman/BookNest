@@ -7,13 +7,14 @@ document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP
 function handleHTTP() {
 
     if (document.getElementById("filter-selector").value != null) {
-        
+
         filter = document.getElementById("filter-selector").value;
+        const searchInput = document.getElementById("search-bar").value.trim();
         console.log(filter);
 
         if (filter == "title") {
             //display error message if empty
-            if (document.getElementById("search-bar").value == null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
@@ -22,7 +23,7 @@ function handleHTTP() {
         }
 
         else if (filter == "all") {
-            if (document.getElementById("search-bar").value == null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
@@ -31,7 +32,7 @@ function handleHTTP() {
         }
 
         else if (filter == "genre") {
-            if (document.getElementById("search-bar").value == null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
@@ -40,7 +41,7 @@ function handleHTTP() {
         }
 
         else if (filter == "date") {
-            if (document.getElementById("search-bar").value == null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
@@ -49,7 +50,7 @@ function handleHTTP() {
         }
 
         else if (filter == "ISBN") {
-            if (document.getElementById("search-bar").value == null) {
+            if (searchInput === "") {
                 searchError();
             }
             else {
@@ -425,11 +426,16 @@ function resetInfo() {
 function searchError() {
 
     const container = document.getElementById("data-container");
-    const errorMessage = document.createElement("div");
+    let prevError = document.querySelector(".error-message");
 
-    errorMessage.textContent = "Search field cannot be empty.";
-    errorMessage.className = "error-message";
-    container.appendChild(errorMessage);
+    if (!prevError) {
+
+        const errorMessage = document.createElement("div");
+        errorMessage.textContent = "Search field cannot be empty.";
+        errorMessage.className = "error-message";
+        container.appendChild(errorMessage);
+
+    }
 
 }
 
