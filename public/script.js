@@ -426,14 +426,10 @@ function searchError() {
     let prevError = document.querySelector(".error-message");
     resetInfo();
 
-    if (!prevError) {
-
-        const errorMessage = document.createElement("div");
-        errorMessage.textContent = "Search field cannot be empty.";
-        errorMessage.className = "error-message";
-        container.appendChild(errorMessage);
-
-    }
+    const errorMessage = document.createElement("div");
+    errorMessage.textContent = "Search field cannot be empty.";
+    errorMessage.className = "error-message";
+    container.appendChild(errorMessage);
 
 }
 
