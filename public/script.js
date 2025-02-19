@@ -42,7 +42,7 @@ function sendGet() {
             return response.json();
         })
         .then(data => {
-            console.log("here shitter");
+            console.log("here buddy");
             
             const container = document.getElementById("data-container");
             resetInfo();
