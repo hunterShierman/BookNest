@@ -23,12 +23,9 @@ function handleHTTP() {
         }
 
         else if (filter == "all") {
-            if (searchInput === "") {
-                searchError();
-            }
-            else {
-                sendGet();
-            }
+   
+            sendGet();
+            
         }
 
         else if (filter == "genre") {
@@ -427,6 +424,7 @@ function searchError() {
 
     const container = document.getElementById("data-container");
     let prevError = document.querySelector(".error-message");
+    resetInfo();
 
     if (!prevError) {
 
