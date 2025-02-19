@@ -39,6 +39,18 @@ function sendGet() {
     console.log("clicked");
     fetch("https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons")
         .then(response => {
+            //debugging for sql error
+            if (!response.ok) {
+
+                return response.json().then(errorData => {
+                    console.error('Error code:', errorData.code);
+                    console.error('Error message:', errorData.message);
+                    console.error('SQL Error:', errorData.sqlMessage);
+                    alert(`An error occurred: ${errorData.message}`);
+                    throw new Error(errorData.message);
+                });
+
+            }
             return response.json();
         })
         .then(data => {

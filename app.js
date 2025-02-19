@@ -101,7 +101,7 @@ app.get("/buttons", (req, res) => {
 
     con.query("SELECT * FROM Inventory", function (err, result, fields) {
         if (err) {
-            res.send(err);
+            res.status(500).send(err);
             return;
         }
     
