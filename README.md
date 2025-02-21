@@ -30,3 +30,4 @@ Here is a link to the demo video: https://www.youtube.com/watch?v=ZOzlvGD2Fys
 
 ## Next Steps 
 - Finish the user account system and checkout feature
+- Optimize website for smaller screen sizes
