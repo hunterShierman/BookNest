@@ -4843,5 +4843,6 @@ img.u-pull-left {
     border: 1px solid red !important;
     border-radius: 5px !important;
     background-color: #ffe6e6 !important;
+    width: 100%;
   }
   

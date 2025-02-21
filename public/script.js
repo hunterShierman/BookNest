@@ -1,4 +1,5 @@
-
+//load all books from database when page loads
+sendGet();
 
 // main loader
 document.querySelector(".s-button-trigger").addEventListener("click", handleHTTP);
@@ -169,7 +170,6 @@ function searchAuthor() {
                 bookCover.className = "book-item";
                 container.appendChild(bookCover);
                 bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
-
 
             })
 
