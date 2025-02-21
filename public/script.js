@@ -113,12 +113,44 @@ function sendGet() {
         })
 }
 
+// search all criteria - general search
+function searchAll() {
+
+    let search = document.getElementById("search-bar").value;
+    search = search.toLowerCase();
+
+    let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/all?search=${search}`;
+
+    fetch(url)
+        .then(response => {
+            response.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+
+
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+
+
+
+
+}
+
 // send specific search request
 function searchTitle() {
 
     console.log("clicked specific search");
     let title = document.getElementById("search-bar").value;
-    console.log(title, "here idiot");
+    title = title.toLowerCase();
+
+    console.log(title, "here is title");
+
     let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/title?name=${title}`
 
     fetch(url)
@@ -139,7 +171,6 @@ function searchTitle() {
                 container.appendChild(bookCover);
                 bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
 
-
             });
         })
         .catch(error => {
@@ -150,6 +181,8 @@ function searchTitle() {
 // search author
 function searchAuthor() {
     let author = document.getElementById("search-bar").value;
+    author = author.toLowerCase();
+
     console.log(author);
     let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/author?name=${author}`;
 
@@ -185,6 +218,8 @@ function searchGenre() {
 
     console.log("clicked search genre");
     let genre = document.getElementById("search-bar").value;
+    genre = genre.toLowerCase();
+
     console.log(genre);
     let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/genre?name=${genre}`;
 
@@ -217,6 +252,7 @@ function searchDate() {
 
     console.log("clicked search date");
     date = document.getElementById("search-bar").value;
+
     console.log(date);
     url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/date?name=${date}`;
 
@@ -289,7 +325,7 @@ function sendPost() {
     let date = document.getElementById("inputDate").value;
     let ISBN = document.getElementById("inputIsbn").value;
 
-    fetch("https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons", {
+    fetch("", {
         "method": "POST",
         "headers": {
             'Content-Type': 'application/json'},
@@ -314,7 +350,7 @@ function sendPut() {
     let ISBN = document.getElementById("inputIsbn").value;
     let id = document.getElementById("replaceNum").value;
 
-    fetch("https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons", {
+    fetch("", {
         "method": "PUT",
         "headers": {
             "Content-Type": "application/json"},
@@ -337,7 +373,7 @@ function sendDelete() {
     let id = document.getElementById("replaceNum").value;
     console.log(id);
 
-    fetch("https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons", {
+    fetch("", {
         "method": "DELETE",
         "headers": {
             "Content-Type": "application/json"},
