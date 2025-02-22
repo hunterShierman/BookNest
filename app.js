@@ -117,16 +117,10 @@ app.get("/buttons/search/all", (req, res) => {
 
     let criteria = req.query.search;
 
-    let sql = `SELECT * FROM Inventory 
-            WHERE Title LIKE %${criteria}% 
-	        OR Genre LIKE %${criteria}% 
-            OR Date LIKE %${criteria}% 
-            OR Path LIKE %${criteria}% 
-            OR Description LIKE %${criteria}% 
-            OR Author LIKE %${criteria}% ;`;
+    let sql = `SELECT * FROM Inventory WHERE Title LIKE ? OR Genre LIKE ? OR Date LIKE ? OR Path LIKE ? OR Description LIKE ? OR Author LIKE ?`;
+    let values = [`%${criteria}%`,`%${criteria}%`, `%${criteria}%`, `%${criteria}%`, `%${criteria}%`, `%${criteria}%`, `%${criteria}%`];
 
-            con.query(sql, function(err, result, fields) {
-
+            con.query(sql, values, function(err, result, fields) {
                 if (err) throw err;
                 res.json(result);
 
