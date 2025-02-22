@@ -19,14 +19,17 @@ function handleHTTP() {
                 searchError();
             }
             else {
-                searchTitle()
+                searchTitle();
             }
         }
 
         else if (filter == "all") {
-   
-            sendGet();
-            
+            if (searchInput === "") {
+                searchError();
+            }
+            else {
+                searchAll();
+            }
         }
 
         else if (filter == "genre") {
@@ -128,18 +131,23 @@ function searchAll() {
         .then(data => {
 
             console.log(data);
+            const container = document.getElementById("data-container");
 
+            resetInfo();
 
+            data.forEach(book => {
 
+                const bookCover = document.createElement("img");
+                bookCover.src = book.Path;
+                bookCover.className = "book-item";
+                container.appendChild(bookCover);
+                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+
+            });
         })
         .catch(error => {
             console.log(error);
         })
-
-
-
-
-
 }
 
 // send specific search request
@@ -151,7 +159,7 @@ function searchTitle() {
 
     console.log(title, "here is title");
 
-    let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/title?name=${title}`
+    let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/title?name=${title}`;
 
     fetch(url)
         .then(response => {
@@ -210,7 +218,6 @@ function searchAuthor() {
         .catch(error => {
             console.log(error);
         })
-
 }
 
 // search genre

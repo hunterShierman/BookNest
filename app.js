@@ -112,6 +112,28 @@ app.get("/buttons", (req, res) => {
 
 })
 
+// search all criteria from database
+app.get("/buttons/search/all", (req, res) => {
+
+    let criteria = req.query.search;
+
+    let sql = `SELECT * FROM Inventory 
+            WHERE Title LIKE %${criteria}% 
+	        OR Genre LIKE %${criteria}% 
+            OR Date LIKE %${criteria}% 
+            OR Path LIKE %${criteria}% 
+            OR Description LIKE %${criteria}% 
+            OR Author LIKE %${criteria}% ;`;
+
+            con.query(sql, function(err, result, fields) {
+
+                if (err) throw err;
+                res.json(result);
+
+            } )
+
+})
+
 // search by title
 app.get("/buttons/search/title", (req, res) => {
 
