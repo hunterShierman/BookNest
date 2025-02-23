@@ -120,13 +120,14 @@ function sendGet() {
 function searchAll() {
 
     let search = document.getElementById("search-bar").value;
+    
     search = search.toLowerCase();
 
     let url = `https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/buttons/search/all?search=${search}`;
 
     fetch(url)
         .then(response => {
-            response.json();
+            return response.json();
         })
         .then(data => {
 
