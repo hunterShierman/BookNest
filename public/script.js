@@ -533,7 +533,7 @@ function noMatches(data) {
 
     const container = document.getElementById("data-container");
     const errorMessage = document.createElement("div");
-    errorMessage.ClassName = "error-message";
+    errorMessage.className = "error-message";
 
     errorMessage.textContent = "No Results Found";
     container.appendChild(errorMessage);
