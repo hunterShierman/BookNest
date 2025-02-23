@@ -25,7 +25,7 @@ function handleHTTP() {
 
         else if (filter == "all") {
             if (searchInput === "") {
-                searchError();
+                sendGet();
             }
             else {
                 searchAll();
@@ -136,15 +136,26 @@ function searchAll() {
 
             resetInfo();
 
-            data.forEach(book => {
+            // if the search returned no matches display error message
+            if (data.length == 0) {
+                noMatches();
+            }
 
-                const bookCover = document.createElement("img");
-                bookCover.src = book.Path;
-                bookCover.className = "book-item";
-                container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+            else {
 
-            });
+                // probably should have made this a function - go back and change later
+                data.forEach(book => {
+
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+    
+                });
+
+            }
+
         })
         .catch(error => {
             console.log(error);
@@ -172,15 +183,24 @@ function searchTitle() {
 
             resetInfo();
 
-            data.forEach(book => {
+            if (data.length == 0) {
+                noMatches();
+            }
 
-                const bookCover = document.createElement("img");
-                bookCover.src = book.Path;
-                bookCover.className = "book-item";
-                container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+            else {
 
-            });
+                data.forEach(book => {
+
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+    
+                });
+
+            }
+
         })
         .catch(error => {
             console.log(error);
@@ -204,16 +224,24 @@ function searchAuthor() {
             const container = document.getElementById("data-container");
             resetInfo();
 
-            data.forEach(book => {
+            if (data.length == 0) {
+                noMatches();
+            }
 
-                console.log(book);
-                const bookCover = document.createElement("img");
-                bookCover.src = book.Path;
-                bookCover.className = "book-item";
-                container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+            else {
 
-            })
+                data.forEach(book => {
+
+                    console.log(book);
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+    
+                })
+
+            }
 
         })
         .catch(error => {
@@ -240,7 +268,14 @@ function searchGenre() {
             const container = document.getElementById("data-container");
             resetInfo();
 
-            data.forEach(book => {
+            // no matches found - display error message
+            if (data.length == 0) {
+                noMatches();
+            }
+
+            else {
+
+                data.forEach(book => {
 
                     const bookCover = document.createElement("img");
                     bookCover.src = book.Path;
@@ -248,7 +283,10 @@ function searchGenre() {
                     container.appendChild(bookCover);
                     bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
 
-            })
+                })
+
+            }
+
         })
         .catch(error => {
             console.log(error);
@@ -273,23 +311,31 @@ function searchDate() {
             const container = document.getElementById("data-container");
 
             resetInfo();
-            
-            data.forEach(book => {
 
-                const bookCover = document.createElement("img");
-                bookCover.src = book.Path;
-                bookCover.className = "book-item";
-                container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+            // no matches found - display error message
+            if (data.length == 0) {
+                noMatches();
+            }
 
-            })
+            else {
 
+                data.forEach(book => {
+
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+    
+                })
+            }
+        })
         .catch(error => {
             console.log(error);
         })
-        })
-
 }
+
+
 
 // search by isbn number
 function searchIsbn() {
@@ -306,21 +352,27 @@ function searchIsbn() {
             const container = document.getElementById("data-container");
             resetInfo();
 
-            data.forEach(book => {
+            // no matches found - display error message
+            if (data.length == 0) {
+                noMatches();
+            }
 
-                const bookCover = document.createElement("img");
-                bookCover.src = book.Path;
-                bookCover.className = "book-item";
-                container.appendChild(bookCover);
-                bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+            else {
 
-            })
+                data.forEach(book => {
 
+                    const bookCover = document.createElement("img");
+                    bookCover.src = book.Path;
+                    bookCover.className = "book-item";
+                    container.appendChild(bookCover);
+                    bookCover.addEventListener("click", generatePage.bind(null, book.Title, book.Genre, book.Author, book.Date, book.ISBN, book.Path, book.Description));
+    
+                })
+            }
         })
         .catch(error => {
             console.log(error);
         })
-
 }
 
 
@@ -473,6 +525,17 @@ function searchError() {
     const errorMessage = document.createElement("div");
     errorMessage.textContent = "Search field cannot be empty.";
     errorMessage.className = "error-message";
+    container.appendChild(errorMessage);
+
+}
+
+function noMatches(data) {
+
+    const container = document.getElementById("data-container");
+    const errorMessage = document.createElement("div");
+    errorMessage.ClassName = "error-message";
+
+    errorMessage.textContent = "No Results Found";
     container.appendChild(errorMessage);
 
 }
