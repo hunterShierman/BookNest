@@ -133,8 +133,10 @@ app.get("/buttons/search/title", (req, res) => {
     let title = req.query.name;
     console.log("the title is", title);
 
-    let sql = "SELECT * FROM Inventory WHERE Title = ?";
-    con.query(sql, [title], function(err, result, fields) {
+    let sql = "SELECT * FROM Inventory WHERE Title LIKE ?";
+    let value = `%${title}%`;
+
+    con.query(sql, [value], function(err, result, fields) {
 
         if (err) throw err;
         console.log("searching all book that match title");
@@ -148,10 +150,12 @@ app.get("/buttons/search/title", (req, res) => {
 app.get("/buttons/search/genre", (req, res) => {
 
     let genre = req.query.name;
+    let value = `%${genre}%`;
+
     console.log(genre);
 
-    let sql = "SELECT * FROM Inventory WHERE Genre = ?";
-    con.query(sql, [genre], function(err, result, fields) {
+    let sql = "SELECT * FROM Inventory WHERE Genre LIKE ?";
+    con.query(sql, [value], function(err, result, fields) {
 
         if (err) throw err;
         console.log("searching all books with matching genre");
@@ -165,10 +169,12 @@ app.get("/buttons/search/genre", (req, res) => {
 app.get("/buttons/search/date", (req, res) => {
 
     let date = req.query.name;
+    let value = `%${date}%`;
+    
     console.log(date);
 
-    let sql = `SELECT * FROM Inventory WHERE Date = ?`;
-    con.query(sql, [date], function(err, result, fields) {
+    let sql = `SELECT * FROM Inventory WHERE Date LIKE ?`;
+    con.query(sql, [value], function(err, result, fields) {
 
         if (err) throw err;
         console.log("searching all books with matching date");
@@ -182,9 +188,10 @@ app.get("/buttons/search/date", (req, res) => {
 app.get("/buttons/search/author", (req, res) => {
 
     let author = req.query.name;
-    let sql = `SELECT * FROM INVENTORY WHERE Author =?`;
+    let sql = `SELECT * FROM INVENTORY WHERE Author LIKE ?`;
+    let value = `%${author}%`;
 
-    con.query(sql, [author], function(err, result, fields) {
+    con.query(sql, [value], function(err, result, fields) {
         if (err) throw err;
         console.log("searching for all matching authors");
         res.json(result);
@@ -197,8 +204,11 @@ app.get("/buttons/search/author", (req, res) => {
 app.get("/buttons/search/isbn", (req, res) => {
 
     let isbn = req.query.name;
-    let sql = `SELECT * FROM Inventory WHERE ISBN = ?`;
-    con.query(sql, [isbn], function(err, result, fields) {
+    let sql = `SELECT * FROM Inventory WHERE ISBN LIKE ?`;
+    let value = `%${isbn}%`;
+
+
+    con.query(sql, [value], function(err, result, fields) {
         
         if (err) throw err;
         console.log("searching for all matching ISBN's");
