@@ -15,7 +15,7 @@ To automate deployments, I configured a CI/CD pipeline with GitHub Actions, whic
 
 Here is a link to the website: https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/
 
-Here is a link to the demo video: https://www.youtube.com/watch?v=ZOzlvGD2Fys
+Here is a link to the demo video: https://www.youtube.com/watch?v=SyOCbhsD6iU
 
 
 ## Features:
