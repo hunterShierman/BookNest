@@ -11,7 +11,7 @@ The application is now hosted on Azure using the Azure App Service for seamless 
 To automate deployments, I configured a CI/CD pipeline with GitHub Actions, which continuously integrates and deploys updates from the GitHub repository to the live application. This ensures that any new changes pushed to the repository are automatically built, tested, and deployed, keeping the website up-to-date with minimal manual intervention.
 
 ## Try it out!
-(My server is down temporarily - hopefully I will have time to fix it in the next few weeks)
+(My server is down temporarily - hopefully I will have time to fix it after my exams!)
 
 Here is a link to the website: https://booknest-app-apeya0djb3bjanf0.canadaeast-01.azurewebsites.net/
 
